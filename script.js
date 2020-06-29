@@ -8,14 +8,19 @@ function submit() {
   let repeatValue = repeat.value.trim()
 
   if (repeatValue != `` && !isNaN(repeatValue)) {
-    box.innerHTML = ``
+    if (repeatValue > 500) {
+      box.innerHTML = `Times to repeat cannot be more than 500.`
+    }
+    else {
+      box.innerHTML = ``
 
-    for (let i = 1; i <= repeatValue; i++) {
-      let image = document.createElement(`img`)
-      image.src = `donkey-kong.png`
-      image.style.width = `${i}px`
+      for (let i = 1; i <= repeatValue; i++) {
+        let image = document.createElement(`img`)
+        image.src = `donkey-kong.png`
+        image.style.width = `${i}px`
 
-      box.appendChild(image)
+        box.appendChild(image)
+      }
     }
   }
 }
